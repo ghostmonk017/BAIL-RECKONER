@@ -3,17 +3,29 @@ Bail Reckoner is an AI-powered digital tool designed to streamline and simplify 
 
 ## Features
 Automated Bail Evaluation: Provides automated calculations of bail eligibility based on legal parameters.
+
 Legal Database Integration: Mapped penalties with sections of various Acts/Laws such as IPC, Bhartiya Nyaya Sanhita 2023, and special laws.
+
 AI/ML Risk Assessment: Incorporates machine learning algorithms for risk assessment, such as the risk of escape or evidence tampering.
+
 User-Friendly Interface: Easy-to-use interface for legal professionals and judicial authorities to input case details and get actionable insights.
+
 Secure Data Transmission: Ensures data security and privacy with encryption and compliance with data protection laws.
+
 Modular Architecture: Micro-services architecture ensuring scalability and easy integration with existing judicial systems.
-Project Structure
-Frontend: A responsive interface built with React for seamless user interaction.
-Backend: Server-side logic implemented with Node.js and Express, supported by MongoDB for case data and legal precedents.
-AI/ML Integration: TensorFlow.js for implementing ML algorithms for risk assessment.
-Security: Encryption for secure data exchange, with regular security audits to ensure compliance.
-APIs: Integration with court management systems through RESTful APIs, enabling smooth data exchange.
+
+## Project Structure
+### Frontend: 
+A responsive interface built with React for seamless user interaction.
+### Backend: 
+Server-side logic implemented with Node.js and Express, supported by MongoDB for case data and legal precedents.
+### AI/ML Integration: 
+TensorFlow.js for implementing ML algorithms for risk assessment.
+### Security: 
+Encryption for secure data exchange, with regular security audits to ensure compliance.
+### APIs: 
+Integration with court management systems through RESTful APIs, enabling smooth data exchange.
+
 ## Key Features Breakdown
 1. Nature of the Offense and Penal Provisions
 The system assesses offenses under various statutes like the IPC, special laws (cybercrime, crimes against women, economic offenses), and maps these to the respective penal provisions.
