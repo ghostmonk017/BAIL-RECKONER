@@ -1,0 +1,68 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<link rel="stylesheet" href="/css/formstyle.css">
+<form method="POST"  id="bail-checker"  >
+  <div class="container">
+    <div class="apphead">
+        <h1>Check Bail Eligibility</h1><br>
+    </div>
+    <div class="progress-bar"></div>
+    <div class="section">
+        <h2>Personal Details</h2>
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" placeholder="Enter your first name" required> 
+        </div>
+        <div class="form-group">
+            <label for="phone-number">Phone Number</label>
+            <input type="number" id="phone-number" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" placeholder="YYYY-MM-DD" required>
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="section"><br>
+        <h2>Case Information</h2>
+        <div class="form-group">
+          <label for="section">Enter Section Number:</label>
+          <input type="number" id="section" placeholder="e.g., 302" required>
+         
+        </div>
+        <div class="form-group">
+            <label for="case-details">Case Details</label>
+            <textarea id="case-details" rows="4" placeholder="Enter details about your case" ></textarea>
+        </div>
+    </div>
+    
+    <button type="submit">Check Bail Status</button>
+  </div>
+    
+  </form>
+  
+  <div id="result"></div>
+  
+  <script>
+  document.getElementById('bail-checker').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const section = document.getElementById('section').value;
+    const firstname = document.getElementById('first-name').value;
+  
+    fetch(`http://localhost:8080/api/offenses/${section}`)
+      .then(response => response.json())
+      .then(data => {
+        let result = `---------------------------------------------------------------------------------------${data.offense} (Section ${data.section}) is ${data.bailable ? 'Bailable' : 'Non-Bailable'}.------------------------------------------------------------------------------------`;
+        document.getElementById('result').innerText = result;
+        document.getElementById('first-name').innerText = firstname;
+      })
+      .catch(err => {
+        document.getElementById('result').innerText = 'Offense not found or server error.';
+      });
+  });
+  </script>
+  
